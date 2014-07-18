@@ -51,6 +51,14 @@ function! TeXFold(lnum)
         return '>3'
     endif
 
+    if line =~ '^\s*\\begin{\(frame\|tabular\|figure\|align\|ganttchart\)'
+        return 'a1'
+    endif
+
+    if line =~ '^\s*\\end{\(frame\|tabular\|figure\|align\|ganttchart\)'
+        return 's1'
+    endif
+
     if line =~ '^\s*\\begin{'
         return 'a1'
     endif
